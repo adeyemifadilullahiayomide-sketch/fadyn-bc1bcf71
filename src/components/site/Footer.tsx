@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-t border-border py-14">
       <div className="section-shell grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="font-display text-base font-semibold">Fadyn Adeyemi</p>
+          <p className="font-display text-base font-semibold">Fadilullahi Adeyemi</p>
           <p className="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
             Digital Systems Builder
           </p>
@@ -53,7 +53,7 @@ export function Footer() {
 
       <div className="section-shell mt-12 border-t border-border pt-6">
         <p className="text-xs text-muted-foreground">
-          © 2026 Fadyn Adeyemi. All rights reserved.
+          © 2026 Fadilullahi Adeyemi. All rights reserved.
         </p>
       </div>
     </footer>

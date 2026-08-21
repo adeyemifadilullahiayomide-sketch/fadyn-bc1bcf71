@@ -22,7 +22,7 @@ export function About() {
             <div className="overflow-hidden rounded-2xl border border-border bg-surface/60">
               <img
                 src={portrait.url}
-                alt="Portrait of Fadyn Adeyemi, Digital Systems Builder"
+                alt="Portrait of Fadilullahi Adeyemi, Digital Systems Builder"
                 width={1131}
                 height={1414}
                 loading="lazy"
@@ -30,7 +30,7 @@ export function About() {
                 className="w-full object-cover"
               />
               <div className="border-t border-border p-5">
-                <p className="text-sm font-semibold">Fadyn Adeyemi</p>
+                <p className="text-sm font-semibold">Fadilullahi Adeyemi</p>
                 <p className="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
                   Digital Systems Builder
                 </p>
