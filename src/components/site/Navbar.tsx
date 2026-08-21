@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { Logo } from "@/components/site/Logo";
 import { navLinks } from "@/data/content";
 import { cn } from "@/lib/utils";
 
@@ -31,17 +32,10 @@ export function Navbar() {
           scrolled ? "h-14" : "h-20",
         )}
       >
-        <a href="#home" className="group flex flex-col leading-none">
+        <a href="#home" className="group flex items-center gap-2.5">
+          <Logo className="size-8 text-primary" />
           <span className="font-display text-base font-semibold tracking-tight">
             Fadyn
-          </span>
-          <span
-            className={cn(
-              "font-mono text-[0.62rem] uppercase tracking-[0.18em] text-muted-foreground transition-all",
-              scrolled ? "h-0 opacity-0" : "mt-1 opacity-100",
-            )}
-          >
-            Digital Systems Builder
           </span>
         </a>
 
