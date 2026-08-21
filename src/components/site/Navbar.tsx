@@ -33,7 +33,7 @@ export function Navbar() {
       >
         <a href="#home" className="group flex flex-col leading-none">
           <span className="font-display text-base font-semibold tracking-tight">
-            Fadilullahi
+            Fadyn
           </span>
           <span
             className={cn(
