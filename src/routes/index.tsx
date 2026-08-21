@@ -1,24 +1,85 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { About } from "@/components/site/About";
+import { BackToTop } from "@/components/site/BackToTop";
+import { Contact } from "@/components/site/Contact";
+import { FinalCTA } from "@/components/site/FinalCTA";
+import { Footer } from "@/components/site/Footer";
+import { Hero } from "@/components/site/Hero";
+import { Navbar } from "@/components/site/Navbar";
+import { Process } from "@/components/site/Process";
+import { Services } from "@/components/site/Services";
+import { ValueProposition } from "@/components/site/ValueProposition";
+import { WhyMe } from "@/components/site/WhyMe";
+import { Work } from "@/components/site/Work";
+
+const title = "Fadilullahi Adeyemi | AI App Developer & Digital Systems Builder";
+const description =
+  "I build high-converting websites, AI-powered applications, and automated digital systems for B2B and local businesses.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      {
+        name: "keywords",
+        content:
+          "AI App Developer, Squarespace Website Developer, AI Developer, Vibe Coder, Website Developer, Digital Systems Builder, AI Automation, AI Web Development, Business Automation, Custom AI Applications",
+      },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Fadilullahi Adeyemi",
+          jobTitle: "Digital Systems Builder, AI App Developer",
+          description,
+          url: "/",
+          sameAs: [
+            "https://www.linkedin.com/in/adeyemi-fadilullahi-424675315",
+          ],
+          knowsAbout: [
+            "AI application development",
+            "Squarespace website development",
+            "Business automation",
+            "CRM and workflow systems",
+            "Rapid MVP development",
+          ],
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Work />
+        <Services />
+        <ValueProposition />
+        <WhyMe />
+        <Process />
+        <About />
+        <Contact />
+        <FinalCTA />
+      </main>
+      <Footer />
+      <BackToTop />
+    </>
   );
 }
