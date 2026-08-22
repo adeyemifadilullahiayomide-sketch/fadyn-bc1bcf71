@@ -1,26 +1,30 @@
 import { whyBuildWithMe } from "@/data/content";
 
 import { Reveal } from "./Reveal";
-import { SectionHeading } from "./SectionHeading";
 
 export function WhyMe() {
   return (
-    <section className="border-t border-border py-24">
+    <section className="border-t border-border py-24 sm:py-32">
       <div className="section-shell">
-        <SectionHeading eyebrow="Approach" title="Why Build With Me?" />
+        <Reveal>
+          <p className="rule-label mb-8">Approach</p>
+          <h2 className="max-w-3xl text-[2.5rem] leading-[1.05] sm:text-6xl">
+            Why Build <span className="serif-italic">With Me?</span>
+          </h2>
+        </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mt-16 border-t border-border">
           {whyBuildWithMe.map((card, i) => (
-            <Reveal key={card.title} delay={i * 60} className="h-full">
-              <article className="h-full rounded-2xl border border-border bg-surface/60 p-6 transition-colors hover:border-border-strong">
-                <h3 className="text-base font-semibold">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <Reveal key={card.title} delay={i * 60}>
+              <div className="grid gap-2 border-b border-border py-8 sm:grid-cols-[1fr_1.2fr] sm:gap-12">
+                <dt className="text-2xl sm:text-[1.75rem]">{card.title}</dt>
+                <dd className="max-w-lg text-sm leading-[1.8] text-muted-foreground sm:text-base">
                   {card.description}
-                </p>
-              </article>
+                </dd>
+              </div>
             </Reveal>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

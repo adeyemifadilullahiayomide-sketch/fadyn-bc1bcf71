@@ -1,68 +1,138 @@
 import { buildingWith } from "@/data/content";
 
-import { Reveal } from "./Reveal";
-import { SystemDiagram } from "./SystemDiagram";
-
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-32 pb-16 sm:pt-40">
-      <div className="absolute inset-0 hairline-grid opacity-40" aria-hidden />
-      <div className="section-shell relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-        <div>
-          <Reveal>
-            <p className="eyebrow">AI • Web • Automation</p>
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.08] sm:text-5xl lg:text-[3.4rem]">
-              I Build Digital Systems That Turn Clicks Into Clients.
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              I help B2B and local businesses build high-converting websites, AI-powered
-              applications, and automated systems that make their business easier to grow.
-            </p>
-          </Reveal>
+    <section id="home" className="relative overflow-hidden pt-36 pb-20 sm:pt-44 lg:pt-52">
+      <div className="section-shell relative grid items-center gap-16 lg:grid-cols-[1fr_0.92fr] lg:gap-20">
+        <div className="enter-up">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+            Digital Systems Builder
+          </p>
 
-          <Reveal delay={120} className="mt-8 flex flex-wrap items-center gap-3">
+          <h1 className="mt-8 text-[2.8rem] leading-[1.02] tracking-tight sm:text-6xl lg:text-[4.6rem]">
+            I Build Digital <span className="serif-italic text-primary">Systems</span> That
+            Turn Clicks Into Clients.
+          </h1>
+
+          <p className="mt-8 max-w-lg text-base leading-[1.75] text-muted-foreground sm:text-[1.05rem]">
+            I help B2B and local businesses build high-converting websites, AI-powered
+            applications, and automated systems that make their business easier to grow.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-8">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-soft transition-colors hover:bg-primary/90"
+              className="inline-flex items-center gap-2 bg-foreground px-7 py-4 text-[0.82rem] font-medium tracking-wide text-background transition-colors hover:bg-primary"
             >
-              Start a Project →
+              Start a Project <span aria-hidden>↗</span>
             </a>
             <a
               href="#work"
-              className="inline-flex items-center justify-center rounded-lg border border-border-strong px-5 py-3 text-sm font-medium transition-colors hover:bg-surface"
+              className="link-underline inline-flex items-center gap-2 text-[0.82rem] font-medium tracking-wide"
             >
-              View My Work
+              View My Work <span aria-hidden>↓</span>
             </a>
-          </Reveal>
+          </div>
 
-          <Reveal delay={200}>
-            <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
-              Websites • AI Apps • Automation • Digital Products
-            </p>
-          </Reveal>
+          <p className="mt-12 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+            Websites — AI Apps — Automation — Digital Products
+          </p>
         </div>
 
-        <Reveal delay={160}>
-          <SystemDiagram />
-        </Reveal>
+        <HeroCollage />
       </div>
 
-      <div className="section-shell relative mt-16">
-        <Reveal className="flex flex-col gap-4 rounded-xl border border-border bg-surface/50 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+      <div className="section-shell relative mt-24">
+        <div className="flex flex-col gap-5 border-t border-border pt-6 sm:flex-row sm:items-baseline sm:justify-between">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
               Building with
             </span>
-            <span className="text-sm text-foreground">
-              {buildingWith.join(" • ")}
-            </span>
+            <span className="font-display text-lg">{buildingWith.join(" · ")}</span>
           </div>
-          <p className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="size-2 rounded-full bg-mint" aria-hidden />
+          <p className="flex items-center gap-2.5 text-xs text-muted-foreground">
+            <span className="size-1.5 rounded-full bg-primary" aria-hidden />
             Available for freelance projects, partnerships &amp; development opportunities.
           </p>
-        </Reveal>
+        </div>
       </div>
     </section>
+  );
+}
+
+function BrowserFrame({
+  src,
+  alt,
+  label,
+  className,
+  eager,
+}: {
+  src: string;
+  alt: string;
+  label: string;
+  className?: string;
+  eager?: boolean;
+}) {
+  return (
+    <figure className={className}>
+      <div className="overflow-hidden border border-border bg-card shadow-card">
+        <div className="flex items-center gap-1.5 border-b border-border bg-surface px-3 py-2">
+          <span className="size-1.5 rounded-full bg-border-strong" />
+          <span className="size-1.5 rounded-full bg-border-strong" />
+          <span className="size-1.5 rounded-full bg-border-strong" />
+        </div>
+        <img
+          src={src}
+          alt={alt}
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
+          className="w-full object-cover"
+        />
+      </div>
+      <figcaption className="mt-2 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        {label}
+      </figcaption>
+    </figure>
+  );
+}
+
+function HeroCollage() {
+  return (
+    <div className="enter-up relative mx-auto w-full max-w-[34rem] lg:max-w-none [animation-delay:220ms]">
+      <div className="absolute -inset-8 hairline-grid opacity-70" aria-hidden />
+
+      <div className="relative pb-16 pl-4 pr-6 sm:pb-20 sm:pr-12">
+        <BrowserFrame
+          eager
+          src="/images/work/cre8hive.jpg"
+          alt="Cre8hive — digital agency website built by Fadilullahi Adeyemi"
+          label="01 — Cre8hive / Website"
+          className="relative z-10 rotate-[-1.2deg]"
+        />
+
+        <BrowserFrame
+          src="/images/work/gentle-path.jpg"
+          alt="Gentle Path — AI wellness web application"
+          label="02 — Gentle Path / AI App"
+          className="absolute -bottom-2 left-0 z-20 w-[52%] rotate-[2.4deg] sm:-bottom-4"
+        />
+
+        <BrowserFrame
+          src="/images/work/vibrant-ai-health.jpg"
+          alt="Vibrant AI Health — AI healthcare platform"
+          label="03 — Vibrant AI / Health"
+          className="absolute -right-2 top-1/4 z-20 hidden w-[40%] rotate-[-3deg] sm:block"
+        />
+
+        <span
+          className="absolute right-6 top-2 z-0 size-16 border-2 border-primary sm:size-20"
+          aria-hidden
+        />
+        <span
+          className="absolute bottom-8 right-2 z-30 size-3 rounded-full bg-primary"
+          aria-hidden
+        />
+      </div>
+    </div>
   );
 }

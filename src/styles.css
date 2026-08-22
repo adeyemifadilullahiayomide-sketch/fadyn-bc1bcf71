@@ -5,21 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — premium corporate-tech.
- * Dark slate foundation, white typography, electric blue + mint accents.
- * No heavy gradients. Subtle borders, soft shadows.
+ * Design system — editorial personal portfolio.
+ * Warm paper background, deep charcoal type, vermilion + forest accents.
+ * DM Serif Display headlines, Manrope UI. No gradients.
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --font-display: "DM Serif Display", Georgia, "Times New Roman", serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -50,46 +50,47 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.25rem;
 
-  --background: #0b1120;
-  --foreground: #f8fafc;
+  --background: #f5f3ee;
+  --foreground: #171717;
 
-  --surface: #111827;
-  --surface-raised: #16202f;
+  --surface: #efece5;
+  --surface-raised: #e9e5dc;
 
-  --card: #111827;
-  --card-foreground: #f8fafc;
-  --popover: #0f1626;
-  --popover-foreground: #f8fafc;
+  --card: #faf9f6;
+  --card-foreground: #171717;
+  --popover: #faf9f6;
+  --popover-foreground: #171717;
 
-  --primary: #2563eb;
-  --primary-foreground: #f8fafc;
+  /* Vermilion — memorable accent, used sparingly */
+  --primary: #ff5c35;
+  --primary-foreground: #f5f3ee;
 
-  --mint: #10b981;
-  --mint-foreground: #0b1120;
+  /* Deep forest — secondary accent */
+  --mint: #1f4d3a;
+  --mint-foreground: #f5f3ee;
 
-  --secondary: #1f2937;
-  --secondary-foreground: #f8fafc;
+  --secondary: #e9e5dc;
+  --secondary-foreground: #171717;
 
-  --muted: #1f2937;
-  --muted-foreground: #94a3b8;
+  --muted: #e9e5dc;
+  --muted-foreground: #6b6b65;
 
-  --accent: #1f2937;
-  --accent-foreground: #f8fafc;
+  --accent: #e9e5dc;
+  --accent-foreground: #171717;
 
-  --destructive: oklch(0.64 0.21 25);
-  --destructive-foreground: #f8fafc;
+  --destructive: #b3341a;
+  --destructive-foreground: #f5f3ee;
 
-  --border: #1f2937;
-  --border-strong: #2b3a4f;
-  --input: #1f2937;
-  --ring: #2563eb;
+  --border: #d9d6ce;
+  --border-strong: #c4c0b6;
+  --input: #d9d6ce;
+  --ring: #ff5c35;
 
-  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.3);
-  --shadow-card: 0 18px 40px -24px oklch(0 0 0 / 0.7);
+  --shadow-soft: 0 1px 2px rgb(23 23 23 / 0.06);
+  --shadow-card: 0 30px 60px -34px rgb(23 23 23 / 0.35);
 }
-
 
 @layer base {
   * {
@@ -106,6 +107,12 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    /* fine paper texture */
+    background-image: radial-gradient(
+      rgb(23 23 23 / 0.028) 1px,
+      transparent 1px
+    );
+    background-size: 3px 3px;
   }
 
   h1,
@@ -113,7 +120,8 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
@@ -125,31 +133,71 @@
 @utility section-shell {
   margin-inline: auto;
   width: 100%;
-  max-width: 78rem;
-  padding-inline: 1.25rem;
+  max-width: 82rem;
+  padding-inline: 1.5rem;
+
+  @media (min-width: 1024px) {
+    padding-inline: 3rem;
+  }
 }
 
 @utility eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--mint);
+  color: var(--muted-foreground);
+}
+
+@utility rule-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+}
+
+@utility serif-italic {
+  font-family: var(--font-display);
+  font-style: italic;
 }
 
 @utility hairline-grid {
   background-image:
-    linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, oklch(1 0 0 / 0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(to right, rgb(23 23 23 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(23 23 23 / 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-size: 100% 1px;
+  }
 }
 
 @utility reveal {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(18px);
   transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 
   &[data-visible="true"] {
     opacity: 1;
@@ -168,6 +216,21 @@
   animation: flow-dash 1.6s linear infinite;
 }
 
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility enter-up {
+  animation: enter-up 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -176,6 +239,9 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .enter-up {
+    animation: none;
   }
   .flow-line {
     animation: none;
