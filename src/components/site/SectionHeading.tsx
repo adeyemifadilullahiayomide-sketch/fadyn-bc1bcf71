@@ -14,11 +14,13 @@ export function SectionHeading({
   align = "left",
 }: SectionHeadingProps) {
   return (
-    <Reveal className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
-      <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>
+    <Reveal className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
+      {eyebrow ? <p className="rule-label mb-8">{eyebrow}</p> : null}
+      <h2 className="text-[2.5rem] leading-[1.05] sm:text-6xl">{title}</h2>
       {subtitle ? (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">{subtitle}</p>
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+          {subtitle}
+        </p>
       ) : null}
     </Reveal>
   );
