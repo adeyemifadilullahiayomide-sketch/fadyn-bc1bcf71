@@ -1,4 +1,4 @@
-import portrait from "@/assets/fadilullahi-portrait.jpg.asset.json";
+const portrait = { url: "/images/fadilullahi-portrait.jpg" };
 import { currentFocus, toolkit } from "@/data/content";
 
 import { Reveal } from "./Reveal";
