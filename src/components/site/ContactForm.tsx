@@ -1,4 +1,3 @@
-import { CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 
@@ -19,8 +18,13 @@ const schema = z.object({
 
 type Errors = Partial<Record<keyof z.infer<typeof schema>, string>>;
 
+const labelClass =
+  "block text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground";
+
 const fieldClass =
-  "w-full rounded-lg border border-input bg-background/70 px-3.5 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/40";
+  "mt-3 w-full border-0 border-b border-border bg-transparent pb-3 text-lg text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-primary";
+
+const errorClass = "mt-2 text-xs text-primary";
 
 export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
@@ -47,17 +51,19 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-2xl border border-mint/30 bg-surface/70 p-8 text-center">
-        <CheckCircle2 className="mx-auto size-8 text-mint" aria-hidden />
-        <h3 className="mt-4 text-lg font-semibold">Thanks — your message is ready to send.</h3>
-        <p className="mt-2 text-sm text-muted-foreground">
+      <div className="border-t border-border pt-10">
+        <p className="rule-label">Message ready</p>
+        <h3 className="mt-6 text-3xl leading-tight sm:text-4xl">
+          Thanks — I'll be <span className="serif-italic text-primary">in touch.</span>
+        </h3>
+        <p className="mt-5 max-w-md text-sm leading-[1.8] text-muted-foreground">
           I'll review the details and get back to you. You can also reach me directly on
           LinkedIn.
         </p>
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-6 rounded-lg border border-border-strong px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-raised"
+          className="link-underline mt-8 text-[0.78rem] font-medium"
         >
           Send another message
         </button>
@@ -66,24 +72,18 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      noValidate
-      onSubmit={onSubmit}
-      className="rounded-2xl border border-border bg-surface/60 p-6 sm:p-8"
-    >
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form noValidate onSubmit={onSubmit} className="border-t border-border pt-10">
+      <div className="grid gap-10 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium">
+          <label htmlFor="name" className={labelClass}>
             Name
           </label>
-          <input id="name" name="name" maxLength={100} className={`mt-2 ${fieldClass}`} />
-          {errors.name ? (
-            <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>
-          ) : null}
+          <input id="name" name="name" maxLength={100} placeholder="Your name" className={fieldClass} />
+          {errors.name ? <p className={errorClass}>{errors.name}</p> : null}
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium">
+          <label htmlFor="email" className={labelClass}>
             Email
           </label>
           <input
@@ -91,25 +91,30 @@ export function ContactForm() {
             name="email"
             type="email"
             maxLength={255}
-            className={`mt-2 ${fieldClass}`}
+            placeholder="you@company.com"
+            className={fieldClass}
           />
-          {errors.email ? (
-            <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>
-          ) : null}
+          {errors.email ? <p className={errorClass}>{errors.email}</p> : null}
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium">
-            Company <span className="text-muted-foreground">(optional)</span>
+          <label htmlFor="company" className={labelClass}>
+            Company (optional)
           </label>
-          <input id="company" name="company" maxLength={120} className={`mt-2 ${fieldClass}`} />
+          <input
+            id="company"
+            name="company"
+            maxLength={120}
+            placeholder="Company name"
+            className={fieldClass}
+          />
         </div>
 
         <div>
-          <label htmlFor="need" className="block text-sm font-medium">
+          <label htmlFor="need" className={labelClass}>
             What are you looking for?
           </label>
-          <select id="need" name="need" defaultValue="" className={`mt-2 ${fieldClass}`}>
+          <select id="need" name="need" defaultValue="" className={fieldClass}>
             <option value="" disabled>
               Select an option
             </option>
@@ -119,16 +124,14 @@ export function ContactForm() {
               </option>
             ))}
           </select>
-          {errors.need ? (
-            <p className="mt-1.5 text-xs text-destructive">{errors.need}</p>
-          ) : null}
+          {errors.need ? <p className={errorClass}>{errors.need}</p> : null}
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="budget" className="block text-sm font-medium">
+          <label htmlFor="budget" className={labelClass}>
             Budget
           </label>
-          <select id="budget" name="budget" defaultValue="" className={`mt-2 ${fieldClass}`}>
+          <select id="budget" name="budget" defaultValue="" className={fieldClass}>
             <option value="" disabled>
               Select a range
             </option>
@@ -138,33 +141,30 @@ export function ContactForm() {
               </option>
             ))}
           </select>
-          {errors.budget ? (
-            <p className="mt-1.5 text-xs text-destructive">{errors.budget}</p>
-          ) : null}
+          {errors.budget ? <p className={errorClass}>{errors.budget}</p> : null}
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="details" className="block text-sm font-medium">
+          <label htmlFor="details" className={labelClass}>
             Project details
           </label>
           <textarea
             id="details"
             name="details"
-            rows={5}
+            rows={4}
             maxLength={2000}
-            className={`mt-2 ${fieldClass}`}
+            placeholder="Tell me about the project…"
+            className={`${fieldClass} resize-none`}
           />
-          {errors.details ? (
-            <p className="mt-1.5 text-xs text-destructive">{errors.details}</p>
-          ) : null}
+          {errors.details ? <p className={errorClass}>{errors.details}</p> : null}
         </div>
       </div>
 
       <button
         type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:w-auto"
+        className="mt-12 inline-flex items-center gap-2 bg-foreground px-7 py-4 text-[0.82rem] font-medium tracking-wide text-background transition-colors hover:bg-primary"
       >
-        Start A Project →
+        Start a Project <span aria-hidden>↗</span>
       </button>
     </form>
   );
