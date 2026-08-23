@@ -9,6 +9,7 @@ import { Hero } from "@/components/site/Hero";
 import { Navbar } from "@/components/site/Navbar";
 import { Process } from "@/components/site/Process";
 import { Services } from "@/components/site/Services";
+import { Statement } from "@/components/site/Statement";
 import { ValueProposition } from "@/components/site/ValueProposition";
 import { WhyMe } from "@/components/site/WhyMe";
 import { Work } from "@/components/site/Work";
