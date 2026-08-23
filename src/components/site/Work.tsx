@@ -100,8 +100,8 @@ function ProjectEntry({
           </p>
 
           <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
-            {project.technologies.map((tech) => (
-              <li key={tech} className="text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground">
+            {project.technologies.map((tech, ti) => (
+              <li key={`${tech}-${ti}`} className="text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground">
                 {tech}
               </li>
             ))}
