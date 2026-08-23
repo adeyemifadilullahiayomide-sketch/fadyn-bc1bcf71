@@ -2,22 +2,30 @@ import { Reveal } from "./Reveal";
 
 export function FinalCTA() {
   return (
-    <section className="border-t border-border py-24">
+    <section className="border-t border-border py-24 sm:py-32">
       <div className="section-shell">
-        <Reveal className="relative overflow-hidden rounded-3xl border border-border bg-surface/70 px-6 py-16 text-center shadow-card sm:px-12">
-          <div className="absolute inset-0 hairline-grid opacity-50" aria-hidden />
-          <div className="relative">
-            <h2 className="mx-auto max-w-2xl text-3xl font-semibold sm:text-4xl">
-              Ready To Build Something Better?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-              Let's create a digital system that actually works for your business.
-            </p>
+        <Reveal>
+          <h2 className="max-w-4xl text-[2.4rem] leading-[1.05] sm:text-6xl">
+            Ready to build something{" "}
+            <span className="serif-italic text-primary">better?</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={90}>
+          <p className="mt-8 max-w-lg text-base leading-[1.8] text-muted-foreground">
+            Let's create a digital system that actually works for your business.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-8">
             <a
               href="#contact"
-              className="mt-8 inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center gap-2 bg-foreground px-7 py-4 text-[0.82rem] font-medium tracking-wide text-background transition-colors hover:bg-primary"
             >
-              Let's Talk →
+              Let's Talk <span aria-hidden>↗</span>
+            </a>
+            <a
+              href="#work"
+              className="link-underline text-[0.82rem] font-medium tracking-wide"
+            >
+              View My Work
             </a>
           </div>
         </Reveal>
