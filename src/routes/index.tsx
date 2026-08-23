@@ -73,9 +73,10 @@ function Index() {
         <Work />
         <Services />
         <ValueProposition />
+        <About />
         <WhyMe />
         <Process />
-        <About />
+        <Statement />
         <Contact />
         <FinalCTA />
       </main>
