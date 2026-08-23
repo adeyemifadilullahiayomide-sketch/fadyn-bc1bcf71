@@ -35,9 +35,9 @@ export function Services() {
                     {service.summary}
                   </p>
                   <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
-                    {service.items.map((item) => (
+                    {service.items.map((item, ii) => (
                       <li
-                        key={item}
+                        key={`${item}-${ii}`}
                         className="text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground"
                       >
                         {item}

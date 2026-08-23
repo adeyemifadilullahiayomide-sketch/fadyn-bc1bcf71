@@ -1,5 +1,3 @@
-import { ExternalLink } from "lucide-react";
-
 import {
   Dialog,
   DialogContent,
@@ -11,11 +9,11 @@ import type { Project } from "@/data/projects";
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div>
-      <h4 className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-mint">
+    <div className="border-t border-border pt-5">
+      <h4 className="text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
         {title}
       </h4>
-      <div className="mt-2 text-sm leading-relaxed text-muted-foreground">{children}</div>
+      <div className="mt-3 text-sm leading-[1.8] text-muted-foreground">{children}</div>
     </div>
   );
 }
@@ -31,36 +29,41 @@ export function CaseStudyDialog({
 
   return (
     <Dialog open={Boolean(project && cs)} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-h-[88vh] max-w-2xl overflow-y-auto border-border bg-popover">
+      <DialogContent className="max-h-[88vh] max-w-2xl overflow-y-auto rounded-none border-border bg-background p-8">
         {project && cs ? (
           <>
-            <DialogHeader>
-              <p className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
-                {project.status} • {project.categoryLabel}
+            <DialogHeader className="text-left">
+              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
+                {project.status} — {project.categoryLabel}
               </p>
-              <DialogTitle className="text-2xl">{project.name}</DialogTitle>
-              <DialogDescription className="text-muted-foreground">
+              <DialogTitle className="mt-3 text-4xl leading-none">{project.name}</DialogTitle>
+              <DialogDescription className="mt-3 text-sm leading-[1.8] text-muted-foreground">
                 {project.description}
               </DialogDescription>
             </DialogHeader>
 
-            <div className="mt-2 space-y-6">
+            <div className="mt-6 space-y-6">
               <Block title="The Challenge">{cs.challenge}</Block>
               <Block title="The Goal">{cs.goal}</Block>
               <Block title="The Solution">{cs.solution}</Block>
               <Block title="What I Built">
-                <ul className="list-disc space-y-1 pl-5">
+                <ul className="space-y-1.5">
                   {cs.built.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="flex gap-3">
+                      <span className="text-primary" aria-hidden>
+                        —
+                      </span>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </Block>
               <Block title="Built With">
-                <ul className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-x-4 gap-y-1">
                   {cs.builtWith.map((tech) => (
                     <li
                       key={tech}
-                      className="rounded-md border border-border bg-background/70 px-2 py-1 text-[0.7rem]"
+                      className="text-[0.66rem] uppercase tracking-[0.16em] text-muted-foreground"
                     >
                       {tech}
                     </li>
@@ -68,9 +71,14 @@ export function CaseStudyDialog({
                 </ul>
               </Block>
               <Block title="Development Process">
-                <ol className="list-decimal space-y-1 pl-5">
-                  {cs.process.map((step) => (
-                    <li key={step}>{step}</li>
+                <ol className="space-y-1.5">
+                  {cs.process.map((step, i) => (
+                    <li key={step} className="flex gap-3">
+                      <span className="text-[0.7rem] tracking-[0.2em] text-primary">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {step}
+                    </li>
                   ))}
                 </ol>
               </Block>
@@ -81,9 +89,9 @@ export function CaseStudyDialog({
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center gap-2 bg-foreground px-6 py-3.5 text-[0.78rem] font-medium text-background transition-colors hover:bg-primary"
                 >
-                  Live Project <ExternalLink className="size-4" />
+                  Live Project <span aria-hidden>↗</span>
                 </a>
               ) : null}
             </div>

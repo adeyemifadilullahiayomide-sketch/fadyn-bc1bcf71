@@ -1,4 +1,4 @@
-import portrait from "@/assets/fadilullahi-portrait.jpg.asset.json";
+const portrait = { url: "/images/fadilullahi-portrait.jpg" };
 import { currentFocus, toolkit } from "@/data/content";
 
 import { Reveal } from "./Reveal";
@@ -122,9 +122,9 @@ export function About() {
           </Reveal>
           <Reveal delay={60}>
             <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-3 border-t border-border pt-8">
-              {toolWords.map((tool) => (
+              {toolWords.map((tool, i) => (
                 <li
-                  key={tool}
+                  key={`${tool}-${i}`}
                   className="cursor-default font-display text-2xl leading-tight text-foreground transition-colors duration-300 hover:text-primary sm:text-[2.1rem]"
                 >
                   {tool}
