@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Fadyn | AI App Developer & Digital Systems Builder" },
+      { title: "Fadilullahi Adeyemi | AI App Developer & Digital Systems Builder" },
       {
         name: "description",
         content:
           "I build high-converting websites, AI-powered applications, and automated digital systems for B2B and local businesses.",
       },
-      { name: "author", content: "Fadyn" },
-      { property: "og:site_name", content: "Fadyn" },
+      { name: "author", content: "Fadilullahi Adeyemi" },
+      { property: "og:site_name", content: "Fadilullahi Adeyemi" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
