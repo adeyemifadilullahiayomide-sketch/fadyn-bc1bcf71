@@ -14,7 +14,7 @@ export function Statement() {
         <Reveal delay={100}>
           <p className="mt-10 flex items-center gap-4 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
             <span className="h-px w-16 bg-border-strong" aria-hidden />
-            Fadilullahi Adeyemi — Digital Systems Builder
+            Fadyn — Digital Systems Builder
           </p>
         </Reveal>
       </div>

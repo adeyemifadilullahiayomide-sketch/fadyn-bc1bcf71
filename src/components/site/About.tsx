@@ -36,7 +36,7 @@ export function About() {
                 />
                 <img
                   src={portrait.url}
-                  alt="Portrait of Fadilullahi Adeyemi, Digital Systems Builder"
+                  alt="Portrait of Fadyn, Digital Systems Builder"
                   width={1131}
                   height={1414}
                   loading="lazy"
@@ -44,7 +44,7 @@ export function About() {
                   className="relative w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
                 />
               </div>
-              <p className="mt-5 font-display text-xl">Fadilullahi Adeyemi</p>
+              <p className="mt-5 font-display text-xl">Fadyn</p>
               <p className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
                 Digital Systems Builder
               </p>
