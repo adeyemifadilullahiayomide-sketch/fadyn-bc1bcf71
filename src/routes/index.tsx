@@ -14,7 +14,7 @@ import { ValueProposition } from "@/components/site/ValueProposition";
 import { WhyMe } from "@/components/site/WhyMe";
 import { Work } from "@/components/site/Work";
 
-const title = "Fadyn | AI App Developer & Digital Systems Builder";
+const title = "Fadilullahi Adeyemi | AI App Developer & Digital Systems Builder";
 const description =
   "I build high-converting websites, AI-powered applications, and automated digital systems for B2B and local businesses.";
 
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          name: "Fadyn",
+          name: "Fadilullahi Adeyemi",
           jobTitle: "Digital Systems Builder, AI App Developer",
           description,
           url: "/",

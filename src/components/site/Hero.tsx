@@ -105,7 +105,7 @@ function HeroCollage() {
         <BrowserFrame
           eager
           src="/images/work/cre8hive.jpg"
-          alt="Cre8hive — digital agency website built by Fadyn"
+          alt="Cre8hive — digital agency website built by Fadilullahi Adeyemi"
           label="01 — Cre8hive / Website"
           className="relative z-10 rotate-[-1.2deg]"
         />

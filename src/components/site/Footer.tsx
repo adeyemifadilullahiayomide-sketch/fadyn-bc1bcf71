@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col gap-12 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="font-display text-3xl leading-none sm:text-4xl">
-              Fadyn
+              Fadilullahi Adeyemi
             </p>
             <p className="mt-3 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
               Digital Systems Builder
@@ -41,7 +41,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
-            © 2026 Fadyn
+            © 2026 Fadilullahi Adeyemi
           </p>
           <p className="flex items-center gap-2.5 text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
             <span className="size-1.5 rounded-full bg-primary" aria-hidden />
