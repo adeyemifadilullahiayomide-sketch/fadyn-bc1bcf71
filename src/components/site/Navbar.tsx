@@ -36,7 +36,7 @@ export function Navbar() {
       >
         <a href="#home" className="group leading-none">
           <span className="font-display text-lg tracking-tight sm:text-xl">
-            Fadilullahi Adeyemi
+            Fadyn
           </span>
           <span className="mt-1.5 block text-[0.6rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
             Digital Systems Builder
