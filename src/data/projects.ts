@@ -32,6 +32,7 @@ export interface Project {
   description: string;
   url?: string;
   image?: string;
+  imageFit?: "cover" | "contain";
   technologies: string[];
   status: ProjectStatus;
   featured: boolean;
@@ -296,6 +297,42 @@ export const projects: Project[] = [
       ],
       outcome:
         "A presentation-heavy build that stays fast, readable and conversion-aware.",
+    },
+  },
+  {
+    id: "taste-home",
+    name: "Taste Home",
+    category: "Other",
+    categoryLabel: "Food Brand / Promotional Graphic Design",
+    status: "Built Project",
+    description:
+      "A bold promotional food flyer designed to showcase local dishes, catering services, delivery options, and direct ordering details at a glance.",
+    technologies: ["Graphic Design", "Visual Communication", "Food Branding"],
+    image: "/images/work/taste-home.png",
+    imageFit: "contain",
+    featured: false,
+    caseStudy: {
+      challenge:
+        "Present a varied food offering, service details, and ordering information in one compact promotional design without losing visual impact.",
+      goal:
+        "Create an appetising, easy-to-scan graphic that gives the dishes strong visual priority and makes the next step clear.",
+      solution:
+        "I used a large food image as the anchor, supported by smaller dish photography, warm brand colours, and a structured service and contact area.",
+      built: [
+        "Promotional food flyer",
+        "Dish photography composition",
+        "Service and contact hierarchy",
+        "High-contrast call to action",
+      ],
+      builtWith: ["Graphic Design", "Layout Design", "Visual Communication"],
+      process: [
+        "Organised the content by visual priority",
+        "Built the food-led image composition",
+        "Established the warm colour and type direction",
+        "Refined service details and ordering visibility",
+      ],
+      outcome:
+        "A distinctive promotional graphic that communicates Taste Home's offer quickly while keeping the food at the centre of the design.",
     },
   },
   {
