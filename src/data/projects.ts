@@ -1,5 +1,3 @@
-import tasteHomeArtwork from "@/assets/taste-home-food-flyer.png.asset.json";
-
 export type ProjectCategory =
   | "AI Apps"
   | "Websites"
@@ -310,7 +308,7 @@ export const projects: Project[] = [
     description:
       "A bold promotional food flyer designed to showcase local dishes, catering services, delivery options, and direct ordering details at a glance.",
     technologies: ["Graphic Design", "Visual Communication", "Food Branding"],
-    image: tasteHomeArtwork.url,
+    image: "/images/work/taste-home.png",
     imageFit: "contain",
     featured: false,
     caseStudy: {
