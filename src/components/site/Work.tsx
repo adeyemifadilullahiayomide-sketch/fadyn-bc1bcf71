@@ -36,7 +36,10 @@ function ProjectEntry({
             alt={`${project.name} — ${project.categoryLabel}`}
             loading="lazy"
             decoding="async"
-            className="size-full object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/entry:scale-[1.045]"
+            className={cn(
+              "size-full object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/entry:scale-[1.045]",
+              project.imageFit === "contain" ? "object-contain" : "object-cover",
+            )}
           />
         ) : (
           <div className="flex size-full items-center justify-center">
